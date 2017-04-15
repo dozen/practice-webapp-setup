@@ -7,6 +7,7 @@ end
 package 'yum-utils'
 package 'diffutils'
 package 'ImageMagick'
+package 'ImageMagick-devel'
 
 file '/etc/sysconfig/i18n' do
   content 'LANG="ja_JP.UTF-8"'
