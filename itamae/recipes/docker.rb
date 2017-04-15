@@ -15,3 +15,5 @@ service 'nginx' do
   action [:enable, :start]
 end
 
+execute 'bundle install' do
+end

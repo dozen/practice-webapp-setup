@@ -1,9 +1,7 @@
 #!/bin/bash
 
-yum install ruby23 diffutils -y
+yum install ruby23 git diffutils -y
 
-gem install 'bundler'
+gem install bundler
 
-cd itamae
-
-bundle install --path vendor/bundle
+bundle install
