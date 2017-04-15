@@ -3,3 +3,7 @@
 yum install ruby23 -y
 
 gem install 'bundler'
+
+cd itamae
+
+bundle install --path vendor/bundle
