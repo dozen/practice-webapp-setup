@@ -1,9 +1,12 @@
 include_recipe 'my_env.rb'
 
 # install basic-tools
-package 'git'
+pexecute 'groupinstall Development Tools' do
+  command 'yum groupinstall "Development Tools" -y'
+end
 package 'yum-utils'
 package 'diffutils'
+package 'ImageMagick'
 
 file '/etc/sysconfig/i18n' do
   content 'LANG="ja_JP.UTF-8"'
@@ -25,10 +28,6 @@ package 'mysql56'
 package 'mysql56-server'
 package 'mysql56-devel'
 package 'ruby23-devel'
-
-execute 'groupinstall Development Tools' do
-  command 'yum groupinstall "Development Tools" -y'
-end
 
 service 'nginx' do
   action [:enable, :start]
