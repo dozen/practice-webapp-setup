@@ -1,5 +1,10 @@
 include_recipe 'my_env.rb'
 
+# install basic-tools
+package 'git'
+package 'yum-utils'
+package 'diffutils'
+
 file '/etc/sysconfig/i18n' do
   content 'LANG="ja_JP.utf8"'
 end

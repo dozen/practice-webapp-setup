@@ -1,6 +1,6 @@
 #!/bin/bash
 
-yum install ruby23 git diffutils yum-utils -y
+yum install ruby23 -y
 
 gem install bundler
 
