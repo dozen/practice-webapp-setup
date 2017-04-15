@@ -43,6 +43,9 @@ service 'mysqld' do
 end
 
 git '/var/www/app' do
-	repository 'git@github.com:dozen/practice-webapp.git'
+  repository 'git@github.com:dozen/practice-webapp.git'
 end
 
+execute 'create database' do
+  command 'mysql < ../files/create-db.sql'
+end
