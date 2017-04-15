@@ -6,7 +6,7 @@ package 'yum-utils'
 package 'diffutils'
 
 file '/etc/sysconfig/i18n' do
-  content 'LANG="ja_JP.utf8"'
+  content 'LANG="ja_JP.UTF-8"'
 end
 
 file '/etc/sysconfig/network' do
@@ -23,6 +23,12 @@ end
 package 'redis'
 package 'mysql56'
 package 'mysql56-server'
+package 'mysql56-devel'
+package 'ruby23-devel'
+
+execute 'groupinstall Development Tools' do
+  command 'yum groupinstall "Development Tools" -y'
+end
 
 service 'nginx' do
   action [:enable, :start]
