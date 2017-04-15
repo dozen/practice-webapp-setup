@@ -47,6 +47,6 @@ git '/var/www/app' do
 end
 
 execute 'create database' do
-  command 'mysql < ../files/create-db.sql'
+  command 'mysql < files/create-db.sql'
   not_if 'echo "SHOW DATABASES;" | mysql | grep ogiri'
 end
