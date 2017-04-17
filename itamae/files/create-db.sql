@@ -19,7 +19,7 @@ CREATE TABLE votes (
 	answer_id	INT UNSIGNED	NOT NULL,
 	user_id		INT UNSIGNED	NOT NULL,
 	point		INT UNSIGNED	NOT NULL,
-	`comment`	VARCHAR(191)	DEFAULT '',
+	`comment`	VARCHAR(191),
 	created_at	DATETIME	NOT NULL
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
