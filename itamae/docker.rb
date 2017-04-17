@@ -1,14 +1,13 @@
 include_recipe 'my_env.rb'
 
 # install basic-tools
-pexecute 'groupinstall Development Tools' do
+execute 'groupinstall Development Tools' do
   command 'yum groupinstall "Development Tools" -y'
 end
 package 'yum-utils'
 package 'diffutils'
 package 'ImageMagick'
 package 'ImageMagick-devel'
-
 file '/etc/sysconfig/i18n' do
   content 'LANG="ja_JP.UTF-8"'
 end
@@ -49,4 +48,9 @@ end
 execute 'create database' do
   command 'mysql < files/create-db.sql'
   not_if 'echo "SHOW DATABASES;" | mysql | grep ogiri'
+end
+
+execute 'go install' do
+  command 'tar -C /usr/local -xzf files/go1.8.1.linux-amd64.tar.gz; echo "export PATH=$PATH:/usr/local/go/bin" > /etc/profile.d/go.sh'
+  not_if '[ -e /usr/local/go ]'
 end
